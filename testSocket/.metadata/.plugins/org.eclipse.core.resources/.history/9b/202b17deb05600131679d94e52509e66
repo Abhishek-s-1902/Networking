@@ -1,0 +1,122 @@
+import java.io.*;
+import java.net.*;
+
+public class Client {
+
+	
+public static void main(String args[])throws IOException,ClassNotFoundException{
+	
+	BufferedReader consoleIn = new BufferedReader(new InputStreamReader(System.in)); 
+
+	System.out.println("Please enter the Host");
+	String name = new String(consoleIn.readLine());
+	new Client().runClient(name);
+		
+}
+
+
+ 
+
+
+void runClient(String S1)throws IOException,ClassNotFoundException{
+	
+	Model M1 = new Model();
+	View V1 = new View();
+	Controller c1 = new Controller(V1,M1);
+	
+	Socket mySocket = new Socket("local host",Integer.parseInt(S1));
+	try{
+		
+		ObjectOutputStream objectoutstream = new  ObjectOutputStream(mySocket.getOutputStream());
+		ObjectInputStream objectinStream = new  ObjectInputStream(mySocket.getInputStream());
+	
+	PrintWriter out =
+            new PrintWriter(mySocket.getOutputStream(), true);
+	
+	BufferedReader in = new BufferedReader(
+            new InputStreamReader(mySocket.getInputStream()));
+	BufferedReader stdIn =
+            new BufferedReader(
+                new InputStreamReader(System.in));
+	
+
+        String userInput1,userInput2;
+        
+      
+      while(true){  
+        userInput1 = in.readLine();
+        userInput2 = userInput1;
+       
+        if(userInput1.toUpperCase()!="Y"|| userInput1.toUpperCase()!="N"){
+		       
+        	System.out.println(userInput2);
+        	userInput2 = stdIn.readLine();
+            out.println(userInput2);
+          } 
+        
+        /*if(userInput.toUpperCase()=="Y"){  ///////////YES PART///////////////////
+      	
+   		
+   		 boolean clickevent = true;
+   		 String indexbool;
+   		 c1.putInitialval();
+   		 objectoutstream.writeObject(c1);
+      	
+   	while(true){
+   		while(clickevent){					//**********errorprone****************
+   			if(c1.getIndexBool()){
+   				indexbool = c1.getData();
+   				out.println(indexbool);
+   				clickevent = false;
+   				c1.clearData();
+   			}
+   		
+   			userInput = in.readLine();
+   			c1.gameplayAction(userInput);
+   		}
+   		
+   		
+   	}
+        
+      }else if(userInput.toUpperCase()=="N") {
+  		
+ 		 c1 = null; 
+ 	    
+ 		c1 = (Controller)objectinStream.readObject();
+ 		
+ 		c1.setInitialval();
+ 		
+ 		while(true){
+ 			 String indexbool;
+ 			boolean clickevent = true;
+ 			userInput = in.readLine();
+ 			c1.gameplayAction(userInput);
+ 			
+     		while(clickevent){					//**********errorprone****************
+     			if(c1.getIndexBool()){
+     				indexbool = c1.getData();
+     				out.println(indexbool);
+     				clickevent = false;
+     				c1.clearData();
+     			}
+     		}		
+ 		}  }*/
+      else{
+ 			System.exit(0);
+ 		}}								//////////outer while ends////////////////////
+      
+      } catch (UnknownHostException e) {
+        System.err.println("Don't know about host ");
+        System.exit(1);
+    } catch (IOException e) {
+        System.err.println("Couldn't get I/O for the connection to " 
+            );
+        System.exit(1);
+    } 
+	
+	
+} ///////////////////////method ends////////////////
+
+}
+
+

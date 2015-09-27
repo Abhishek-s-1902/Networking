@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+D:\ABHI\STUDY\Bridge cource materials\testSocket\.metadata\.plugins\org.eclipse.jdt.core

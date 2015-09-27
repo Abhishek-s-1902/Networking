@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 5 elements to &apos;MVC_copy/src&apos;&#x0D;&#x0A;- Original project: &apos;MVC_copy&apos;&#x0D;&#x0A;- Destination element: &apos;MVC_copy/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Controller.java&#x0D;&#x0A;     Model.java&#x0D;&#x0A;     Client.java&#x0D;&#x0A;     Server.java&#x0D;&#x0A;     View.java&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="/src" element1="Controller.java" element2="Model.java" element3="Client.java" element4="Server.java" element5="View.java" files="5" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1385480224068" units="0" version="1.0"/>
+</session>

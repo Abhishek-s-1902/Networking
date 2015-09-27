@@ -1,0 +1,90 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+
+public class Controller {
+
+	private View theView;
+	private Model theModle;
+	
+	Vector<Integer> V1 = new Vector();
+	Integer first;
+	
+		public Controller(View theView,Model theModle){
+		this.theView = theView;
+		this.theModle = theModle;
+	    this.theView.clicklistner(new addListner());
+	    this.theView.setLuckyval(this.theModle.getlucky());
+	    this.theView.setButtonval(this.theModle.getButtonval());
+	    this.theView.setVisible(true);
+	
+		}
+	
+		
+		void putInitialval(){
+			
+			this.V1= theView.V1;
+			this.first = theView.first;
+		}
+		
+		
+		void setInitialval(){      			////////error prone//////////////
+			
+			theView.txt.setText("your lucky no is:"+ this.first);
+			theView.setButtonval(this.V1);
+		}
+	
+	Vector	getVector(){
+		return this.V1;
+		
+	}
+	
+	Integer getFirst(){  ///for initial datasetup
+		return this.first;
+		
+	}
+	
+	
+	
+	String getData(){			////while the game play 
+	
+		Integer index = theView.getIndex();
+		boolean howwins = theView.getWin();
+		String S1 = (index.toString()+"\u0020"+ howwins);
+		return S1;
+	}
+	
+boolean getIndexBool(){
+	Integer index = theView.getIndex();
+		if(index == null){
+			return false;
+			
+		}else{
+		
+		return true;
+	}}
+
+   void gameplayAction(String setVal){
+	String S[] = setVal.split("\u0020");
+	Integer index = Integer.parseInt(S[0]);
+	Boolean howwins = Boolean.valueOf(S[1]);
+	
+	theView.gameplayAction(index,howwins);
+	
+  }
+
+	void clearData(){
+	theView.clearData();
+	}
+	
+	class addListner implements ActionListener{
+		
+		public void actionPerformed(ActionEvent e) {
+			 
+			theView.actionPerformed(e);	 
+			
+	}
+	
+	
+}
+}
